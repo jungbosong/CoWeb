@@ -5,7 +5,8 @@ using System.IO;
 
 public class FileMaker : MonoBehaviour
 {    
-    public void MakeFile(string data, string fileName)
+    
+    public void  MakeFile(string data, string fileName)
     {
         string path = Application.persistentDataPath + fileName + ".htm";
         StreamWriter sw;
@@ -19,6 +20,7 @@ public class FileMaker : MonoBehaviour
             sw.Flush();
             sw.Close();
             fs.Close();
+
         }
         else if(File.Exists(path))
         {

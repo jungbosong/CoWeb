@@ -11,14 +11,21 @@ public class WebView : MonoBehaviour
     public FileMaker fileMaker;
     private WebViewObject webViewObject;
 
+
+    // UI관련 변수
+    public Text saveTxt;
+    public Text logTxt;
+
     void Awake()
     {
-        fileMaker.gameObject.GetComponent<FileMaker>();    
+        fileMaker.gameObject.GetComponent<FileMaker>();  
+        saveTxt.gameObject.GetComponent<Text>();  
+        logTxt.gameObject.GetComponent<Text>();
     }
     void Start()
     {
-        fileMaker.MakeFile(code, "/index");
-        StartWebView();
+        //fileMaker.MakeFile(code, "/index");
+        //StartWebView();
     }
 
     void Update()
@@ -37,12 +44,15 @@ public class WebView : MonoBehaviour
     {
         string strUrl = Application.persistentDataPath + URL;
 
+        logTxt.text += "\nStartWebview\n" + strUrl;
+
         try
         {
             webViewObject = (new GameObject("WebViewObject")).AddComponent<WebViewObject>();
             webViewObject.Init((msg) =>
             {
                 Debug.Log(string.Format("CallFromJS[{0}]", msg));
+                logTxt.text += string.Format("CallFromJS[{0}]", msg);
             });
 
             webViewObject.LoadURL(strUrl);
@@ -53,5 +63,16 @@ public class WebView : MonoBehaviour
         {
             print($"WebView Error : {e}");
         }
+    }
+
+    public void OnClickedSaveButton()
+    {
+        fileMaker.MakeFile(code, "/index");
+        saveTxt.text += "\nsaveHtml";
+    }
+
+    public void OnClickedStartWebview()
+    {
+        StartWebView();
     }
 }

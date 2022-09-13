@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class WebView : MonoBehaviour
 {
     string URL = "/index.htm";
-    string code = "<!doctype html><html><head><title>example 1-2</title></head><body><H2>example 1-2</H2><HR>example 1-2</body></html>";
+    //string code = "<!doctype html><html><head><title>example 1-2</title></head><body><H2>example 1-2</H2><HR>example 1-2</body></html>";
     public FileMaker fileMaker;
     private WebViewObject webViewObject;
+    [SerializeField] CodeReader codeReader;
 
 
     // UI관련 변수
@@ -21,6 +22,7 @@ public class WebView : MonoBehaviour
         fileMaker.gameObject.GetComponent<FileMaker>();  
         saveTxt.gameObject.GetComponent<Text>();  
         logTxt.gameObject.GetComponent<Text>();
+        codeReader = codeReader.gameObject.GetComponent<CodeReader>();    
     }
     void Start()
     {
@@ -57,7 +59,7 @@ public class WebView : MonoBehaviour
 
             webViewObject.LoadURL(strUrl);
             webViewObject.SetVisibility(true);
-            webViewObject.SetMargins(200, 50, 200, 50);
+            webViewObject.SetMargins(200, 50, 200, 50); // 좌, 상, 우, 하
         }
         catch( System.Exception e)
         {
@@ -67,6 +69,7 @@ public class WebView : MonoBehaviour
 
     public void OnClickedSaveButton()
     {
+        string code = codeReader.ReadDevCard();
         fileMaker.MakeFile(code, "/index");
         saveTxt.text += "\nsaveHtml";
     }

@@ -17,7 +17,7 @@ public class CodeReader : MonoBehaviour
 
     [SerializeField] GameObject devArea;
 
-    public void ReadDevCard()
+    public string ReadDevCard()
     {
         string lastOpenTagName = "";
         for(int i = 0; i < devArea.transform.childCount; i++)
@@ -63,7 +63,6 @@ public class CodeReader : MonoBehaviour
             }
         }
         code += "</html>";
-
-        Debug.Log(code);
+        return code;
     }
 }

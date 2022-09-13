@@ -4,8 +4,7 @@ using UnityEngine;
 using System.IO;
 
 public class FileMaker : MonoBehaviour
-{    
-    
+{       
     public void  MakeFile(string data, string fileName)
     {
         string path = Application.persistentDataPath + fileName + ".htm";
@@ -24,7 +23,8 @@ public class FileMaker : MonoBehaviour
         }
         else if(File.Exists(path))
         {
-            Directory.Delete(path);
+            File.Delete(path);
+            MakeFile(data, fileName);
         }
     }
 }

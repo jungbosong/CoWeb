@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DevCardMaker : MonoBehaviour
 {
-    // 클릭했을 때 드래그앤드롭 가능한 obj만들고
     [SerializeField] GameObject cardPrefab;
     GameObject devCard;
     [SerializeField] GameObject devArea;
@@ -17,5 +16,6 @@ public class DevCardMaker : MonoBehaviour
         devCard.transform.localScale = new Vector3(1f, 1f, 1f);
         devCard.transform.localPosition = new Vector3(0f, 0f, 0f);
     }
-
 }
+
+

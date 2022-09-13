@@ -2007,6 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileMaker: {fileID: 0}
+  codeReader: {fileID: 0}
   saveTxt: {fileID: 0}
   logTxt: {fileID: 0}
 --- !u!1 &879692711
@@ -3282,6 +3283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileMaker: {fileID: 2028541335}
+  codeReader: {fileID: 1219745835}
   saveTxt: {fileID: 55188771}
   logTxt: {fileID: 342945620}
 --- !u!1 &1796823553
@@ -3382,7 +3384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1806271079
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3972,8 +3974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 110.33551}
-  m_SizeDelta: {x: 0, y: 220.671}
+  m_AnchoredPosition: {x: 0, y: 87.936005}
+  m_SizeDelta: {x: 0, y: 175.873}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996827889
 MonoBehaviour:
